@@ -31,9 +31,7 @@ namespace Transl
             }
 
             WeatherResponse weatherResponce = JsonConvert.DeserializeObject<WeatherResponse>(response);
-
-            //SerialJson Ser = new SerialJson(weatherResponce.weather[0].description, weatherResponce.Main.Temp, weatherResponce.Sys.country, weatherResponce.Name);
-
+            
             SerialJson Ser = new SerialJson();
             Ser.descriprion = weatherResponce.weather[0].description;
             Ser.temp = weatherResponce.Main.Temp;
@@ -67,15 +65,6 @@ namespace Transl
 
             [DataMember]
             public string name { get; set; }
-
-            /*
-            public SerialJson(string Description, float Temp, string Country, string Name)
-            {
-                Name = name;
-                Temp = temp;
-                Country = country;
-                Description = descriprion;
-            } */
         }
         
         public class Weather

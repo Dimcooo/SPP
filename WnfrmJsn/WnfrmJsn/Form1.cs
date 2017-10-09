@@ -20,35 +20,44 @@ namespace WnfrmJsn
             InitializeComponent();
         }
 
+        public void Translate()
+        {
+            try
+            {
+                var client = new Transl.TranslClient("NetTcpBinding_ITransl");
+                textBox2.Text = client.ReadJson(textBox1.Text);
+
+                WeatherCl weatherCl = JsonConvert.DeserializeObject<WeatherCl>(textBox2.Text);
+
+                textBox3.Text = "Country: " + weatherCl.Country + Environment.NewLine +
+                                "City: " + weatherCl.Name + Environment.NewLine +
+                                "Temperature: " + weatherCl.Temp + Environment.NewLine +
+                                "Description: " + weatherCl.Descriprion;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            var client = new Transl.TranslClient("NetTcpBinding_ITransl");
-            textBox2.Text = client.ReadJson(textBox1.Text);
-
+            Translate();
         }
     }
 
-    public class Weather
+    public partial class WeatherCl
     {
-        public string description { get; set; }
-    }
+        [JsonProperty("descriprion")]
+        public string Descriprion { get; set; }
 
-    public class TemperatureInfo
-    {
-        public float Temp { get; set; }
-    }
+        [JsonProperty("country")]
+        public string Country { get; set; }
 
-    public class Sys
-    {
-        public string country { get; set; }
-    }
-
-    public class WeatherResponse
-    {
-        public TemperatureInfo Main { get; set; }
-        public Weather[] weather { get; set; }
-        public int Dt { get; set; }
-        public Sys Sys { get; set; }
+        [JsonProperty("name")]
         public string Name { get; set; }
+
+        [JsonProperty("temp")]
+        public double Temp { get; set; }
     }
 }
