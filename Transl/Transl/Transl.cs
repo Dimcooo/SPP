@@ -9,29 +9,39 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Runtime.Serialization.Json;
 using System.Web.Helpers;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace Transl
 {
     // ПРИМЕЧАНИЕ. Команду "Переименовать" в меню "Рефакторинг" можно использовать для одновременного изменения имени класса "Transl" в коде и файле конфигурации.
     public class Transl : ITransl
     {
-        public string ReadJson(string city)
+        public string response, answer;
+
+        public Task Trnslt(string city)
         {
-            string response, answer;
-
-            string url = "http://api.openweathermap.org/data/2.5/weather?q="+ city + "&appid=f69b60cbb2e403ce6f6da145b9e974ef";
-
-            HttpWebRequest httpWebRequesr = (HttpWebRequest)WebRequest.Create(url);
-            HttpWebResponse httpWebResponce = (HttpWebResponse)httpWebRequesr.GetResponse();
-
-            using (StreamReader streamReader = new StreamReader(httpWebResponce.GetResponseStream()))
+            return Task.Run(() =>
             {
-                response = streamReader.ReadToEnd();
+                string url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=f69b60cbb2e403ce6f6da145b9e974ef";
 
-            }
+                HttpWebRequest httpWebRequesr = (HttpWebRequest)WebRequest.Create(url);
+                HttpWebResponse httpWebResponce = (HttpWebResponse)httpWebRequesr.GetResponse();
 
+                using (StreamReader streamReader = new StreamReader(httpWebResponce.GetResponseStream()))
+                {
+                    response = streamReader.ReadToEnd();
+                    ThreadPool.QueueUserWorkItem(SerializRezThread);
+                    Thread.Sleep(1000);
+                }
+
+            });
+        }
+
+        public void SerializRezThread(object state)
+        {
             WeatherResponse weatherResponce = JsonConvert.DeserializeObject<WeatherResponse>(response);
-            
+
             SerialJson Ser = new SerialJson();
             Ser.descriprion = weatherResponce.weather[0].description;
             Ser.temp = weatherResponce.Main.Temp;
@@ -47,6 +57,11 @@ namespace Transl
 
             StreamReader f = new StreamReader("people.json");
             answer = f.ReadLine();
+        }
+
+        public async Task<string> ReadJson(string city)
+        {
+            await Trnslt(city);
 
             return answer;
         }

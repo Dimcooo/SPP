@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Transl
 {
@@ -12,6 +13,6 @@ namespace Transl
     public interface ITransl
     {
         [OperationContract]
-        string ReadJson(string city);
+        Task<string> ReadJson(string city);
     }
 }
