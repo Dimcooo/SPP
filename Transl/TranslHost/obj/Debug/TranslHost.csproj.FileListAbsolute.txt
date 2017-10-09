@@ -1,0 +1,9 @@
+D:\Учёба\СПП\Transl\TranslHost\bin\Debug\TranslHost.exe.config
+D:\Учёба\СПП\Transl\TranslHost\bin\Debug\TranslHost.exe
+D:\Учёба\СПП\Transl\TranslHost\bin\Debug\TranslHost.pdb
+D:\Учёба\СПП\Transl\TranslHost\bin\Debug\Transl.dll
+D:\Учёба\СПП\Transl\TranslHost\bin\Debug\Transl.pdb
+D:\Учёба\СПП\Transl\TranslHost\obj\Debug\TranslHost.csprojResolveAssemblyReference.cache
+D:\Учёба\СПП\Transl\TranslHost\obj\Debug\TranslHost.exe
+D:\Учёба\СПП\Transl\TranslHost\obj\Debug\TranslHost.pdb
+D:\Учёба\СПП\Transl\TranslHost\bin\Debug\Newtonsoft.Json.dll

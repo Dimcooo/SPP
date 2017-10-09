@@ -1,0 +1,10 @@
+D:\Учёба\СПП\WnfrmJsn\WnfrmJsn\bin\Debug\WnfrmJsn.exe.config
+D:\Учёба\СПП\WnfrmJsn\WnfrmJsn\bin\Debug\WnfrmJsn.exe
+D:\Учёба\СПП\WnfrmJsn\WnfrmJsn\bin\Debug\WnfrmJsn.pdb
+D:\Учёба\СПП\WnfrmJsn\WnfrmJsn\obj\Debug\WnfrmJsn.csprojResolveAssemblyReference.cache
+D:\Учёба\СПП\WnfrmJsn\WnfrmJsn\obj\Debug\WnfrmJsn.Form1.resources
+D:\Учёба\СПП\WnfrmJsn\WnfrmJsn\obj\Debug\WnfrmJsn.Properties.Resources.resources
+D:\Учёба\СПП\WnfrmJsn\WnfrmJsn\obj\Debug\WnfrmJsn.csproj.GenerateResource.Cache
+D:\Учёба\СПП\WnfrmJsn\WnfrmJsn\obj\Debug\WnfrmJsn.exe
+D:\Учёба\СПП\WnfrmJsn\WnfrmJsn\obj\Debug\WnfrmJsn.pdb
+D:\Учёба\СПП\WnfrmJsn\WnfrmJsn\bin\Debug\Newtonsoft.Json.dll
