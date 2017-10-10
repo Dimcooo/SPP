@@ -57,6 +57,8 @@ namespace Transl
 
             StreamReader f = new StreamReader("people.json");
             answer = f.ReadLine();
+            f.Close();
+            File.Delete("people.json");
         }
 
         public async Task<string> ReadJson(string city)
