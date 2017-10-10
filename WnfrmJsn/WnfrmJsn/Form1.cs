@@ -33,6 +33,8 @@ namespace WnfrmJsn
                                 "City: " + weatherCl.Name + Environment.NewLine +
                                 "Temperature: " + weatherCl.Temp + Environment.NewLine +
                                 "Description: " + weatherCl.Descriprion;
+
+                client.Close();
             }
             catch (Exception e)
             {
