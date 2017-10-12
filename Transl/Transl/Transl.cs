@@ -11,6 +11,7 @@ using System.Runtime.Serialization.Json;
 using System.Web.Helpers;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Web.Script.Serialization;
 
 namespace Transl
 {
@@ -24,7 +25,7 @@ namespace Transl
             return Task.Run(() =>
             {
                 string url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=f69b60cbb2e403ce6f6da145b9e974ef";
-
+                
                 HttpWebRequest httpWebRequesr = (HttpWebRequest)WebRequest.Create(url);
                 HttpWebResponse httpWebResponce = (HttpWebResponse)httpWebRequesr.GetResponse();
 
@@ -43,22 +44,27 @@ namespace Transl
             WeatherResponse weatherResponce = JsonConvert.DeserializeObject<WeatherResponse>(response);
 
             SerialJson Ser = new SerialJson();
+            
             Ser.descriprion = weatherResponce.weather[0].description;
             Ser.temp = weatherResponce.Main.Temp;
             Ser.country = weatherResponce.Sys.country;
             Ser.name = weatherResponce.Name;
 
-            DataContractJsonSerializer jsonFormart = new DataContractJsonSerializer(typeof(SerialJson));
+            //DataContractJsonSerializer jsonFormart = new DataContractJsonSerializer(typeof(SerialJson));
 
-            using (FileStream fs = new FileStream("people.json", FileMode.OpenOrCreate))
+            JavaScriptSerializer ser = new JavaScriptSerializer();
+            answer = ser.Serialize(Ser);
+
+            /*
+            using (FileStream fs = new FileStream("city.json", FileMode.OpenOrCreate))
             {
                 jsonFormart.WriteObject(fs, Ser);
             }
 
-            StreamReader f = new StreamReader("people.json");
+            StreamReader f = new StreamReader("city.json");
             answer = f.ReadLine();
             f.Close();
-            File.Delete("people.json");
+            File.Delete("city.json"); */
         }
 
         public async Task<string> ReadJson(string city)
