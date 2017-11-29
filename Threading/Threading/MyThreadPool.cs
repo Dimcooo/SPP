@@ -29,7 +29,10 @@ namespace Threading
 
         public void DirectON()
         {
-            DirectionThread();            
+            if (countTask <= minCountThread)
+            {
+                DirectionThread();
+            }
         }
 
         public MyThreadPool(int min, int max)
@@ -40,11 +43,12 @@ namespace Threading
 
         public void DirectionThread()
         {
-            for (int i = 0; i < countTask; i++)
-            {            
+            //for (int i = 0; i < countTask; i++)
+            //{
                 MakeThread();
-                count++;
-            }
+                //count++;
+            //}
+
         }
 
         public void MakeThread()

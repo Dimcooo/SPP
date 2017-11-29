@@ -10,13 +10,18 @@ namespace Threading
         {
             TaskClass taskObj = new TaskClass();
 
-            MyThreadPool threadPool = new MyThreadPool(3, 6);
+            MyThreadPool threadPool = new MyThreadPool(2, 8);
 
             TaskQueue testTask = new TaskQueue(taskObj.Test, null);
+
             threadPool.AddTaskInQueue(testTask);
+
+            threadPool.DirectON();
+
             threadPool.AddTaskInQueue(testTask);
-            threadPool.AddTaskInQueue(testTask);
-            threadPool.AddTaskInQueue(testTask);
+
+            threadPool.DirectON();
+
             threadPool.AddTaskInQueue(testTask);
 
             threadPool.DirectON();
