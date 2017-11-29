@@ -10,22 +10,38 @@ namespace Threading
     {
         private int minCountThread;
         private int maxCountThread;
-        private int count = 0;
+        private int count = 0, countTask = 0;
         private CancellationTokenSource cnclTkn = new CancellationTokenSource();
+
         private TaskClass task = new TaskClass();
+        private Queue<TaskQueue> queueTask = new Queue<TaskQueue>();
+        private object syncQueue = new object();
+
+        public void AddTaskInQueue(TaskQueue task)
+        {
+            lock (syncQueue)
+            {
+                Console.WriteLine("Task added");
+                queueTask.Enqueue(task);
+                countTask++;
+            }
+        }
+
+        public void DirectON()
+        {
+            DirectionThread();            
+        }
 
         public MyThreadPool(int min, int max)
         {
             this.minCountThread = min;
             this.maxCountThread = max;
-
-            DirectionThread();
         }
 
         public void DirectionThread()
         {
-            for (int i = 0; i < minCountThread; i++)
-            {
+            for (int i = 0; i < countTask; i++)
+            {            
                 MakeThread();
                 count++;
             }
@@ -39,16 +55,32 @@ namespace Threading
 
         public void WorkForThread()
         {
-            task.Test();
-            //Console.WriteLine("Something");
-            if (count >= minCountThread)
+            //task.Test();
+
+            TaskQueue taskToDo;
+
+            lock (syncQueue)
             {
-                if (count <= maxCountThread)
-                {                    
-                    MakeThread();
-                    count++;
-                }
+                taskToDo = queueTask.Dequeue();
             }
+
+            try
+            {
+                taskToDo.deleg(taskToDo.state);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            //if (count >= minCountThread)
+            //{
+            //    if (count <= maxCountThread)
+            //    {                    
+            //        MakeThread();
+            //        count++;
+            //    }
+            //}
         }
     }
 }
