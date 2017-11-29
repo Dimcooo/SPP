@@ -77,6 +77,7 @@ namespace MyThreadPool
                 {
                     log.Info("Maximum count of threads");
                     MaxNumbOfThread++;
+                    AddNewThread();
                 }
 
                 if (queueTask.Count() >= 2 && ThreadSize() < MaxNumbOfThread)
