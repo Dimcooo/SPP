@@ -10,7 +10,7 @@ namespace Threading
     {
         private int minCountThread;
         private int maxCountThread;
-        private int count = 0, countTask = 0;
+        private int countTask = 0;
         private CancellationTokenSource cnclTkn = new CancellationTokenSource();
 
         private TaskClass task = new TaskClass();
@@ -25,12 +25,20 @@ namespace Threading
                 queueTask.Enqueue(task);
                 countTask++;
             }
+
+            DirectON();
         }
 
         public void DirectON()
         {
             if (countTask <= minCountThread)
             {
+                DirectionThread();
+            }
+            else
+            {
+                Console.WriteLine("Max numb of threads");
+                minCountThread++;
                 DirectionThread();
             }
         }
@@ -43,12 +51,7 @@ namespace Threading
 
         public void DirectionThread()
         {
-            //for (int i = 0; i < countTask; i++)
-            //{
-                MakeThread();
-                //count++;
-            //}
-
+            MakeThread();
         }
 
         public void MakeThread()
@@ -59,8 +62,6 @@ namespace Threading
 
         public void WorkForThread()
         {
-            //task.Test();
-
             TaskQueue taskToDo;
 
             lock (syncQueue)
@@ -76,15 +77,6 @@ namespace Threading
             {
                 Console.WriteLine(ex.Message);
             }
-
-            //if (count >= minCountThread)
-            //{
-            //    if (count <= maxCountThread)
-            //    {                    
-            //        MakeThread();
-            //        count++;
-            //    }
-            //}
         }
     }
 }
