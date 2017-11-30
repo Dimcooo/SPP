@@ -14,14 +14,14 @@ namespace Threading
             TaskQueue testTask = new TaskQueue(taskObj.Test, null);
             TaskQueue testTaskSec = new TaskQueue(taskObj.SecondTest, null);
 
-            //for (int i = 0; i < 5; i++)
-            //{
+            for (int i = 0; i < 3; i++)
+            {
                 threadPool.AddTaskInQueue(testTask);
 
-                Thread.Sleep(4000);
+                Thread.Sleep(2000);
 
                 threadPool.AddTaskInQueue(testTaskSec);
-            //}
+            }
 
             Console.ReadKey();
         }

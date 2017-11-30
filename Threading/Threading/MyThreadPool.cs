@@ -11,10 +11,16 @@ namespace Threading
         private int minCountThread;
         private int maxCountThread;
         private int countTask = 0;
+        private string name;
+
         private CancellationTokenSource cnclTkn = new CancellationTokenSource();
+
         private TaskClass task = new TaskClass();
+
         private Queue<TaskQueue> queueTask = new Queue<TaskQueue>();
         private object syncQueue = new object();
+        private object syncNumbThreads = new object();
+        
 
         public void AddTaskInQueue(TaskQueue task)
         {
@@ -53,6 +59,11 @@ namespace Threading
         {
             var newThrd = new Task(WorkForThread, cnclTkn.Token, TaskCreationOptions.LongRunning);
             newThrd.Start();
+            lock (syncNumbThreads)
+            {
+                name = "Thread " + (newThrd.Id).ToString();
+                Console.WriteLine($"{name} created");
+            }
         }
 
         public void WorkForThread()
@@ -68,10 +79,14 @@ namespace Threading
             {
                 taskToDo.deleg(taskToDo.state);
             }
-
             catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+
+            lock (syncNumbThreads)
+            {
+                Console.WriteLine($"Thread {Task.CurrentId} is deleted");
             }
         }
     }
