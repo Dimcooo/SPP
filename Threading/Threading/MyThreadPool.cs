@@ -20,13 +20,15 @@ namespace Threading
         private Queue<TaskQueue> queueTask = new Queue<TaskQueue>();
         private object syncQueue = new object();
         private object syncNumbThreads = new object();
+
+        private Logger log = new Logger();
         
 
         public void AddTaskInQueue(TaskQueue task)
         {
             lock (syncQueue)
             {
-                Console.WriteLine("Task added");
+                log.Add(DateTime.Now.ToString() + " : " + "Task added");
                 queueTask.Enqueue(task);
                 countTask++;
             }
@@ -42,7 +44,7 @@ namespace Threading
             }
             else
             {
-                Console.WriteLine("Max numb of threads");
+                log.Add(DateTime.Now.ToString() + " : " + "Max numb of threads");
                 minCountThread++;
                 MakeThread();
             }
@@ -50,7 +52,8 @@ namespace Threading
 
         public MyThreadPool(int min, int max)
         {
-            Console.WriteLine("ThreadPool is created");
+            log.ClearFile();
+            log.Add(DateTime.Now.ToString() + " : " + "ThreadPool is created");
             this.minCountThread = min;
             this.maxCountThread = max;
         }
@@ -62,7 +65,7 @@ namespace Threading
             lock (syncNumbThreads)
             {
                 name = "Thread " + (newThrd.Id).ToString();
-                Console.WriteLine($"{name} created");
+                log.Add(DateTime.Now.ToString() + " : " + $"{name} created");
             }
         }
 
@@ -81,12 +84,12 @@ namespace Threading
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                log.Add(DateTime.Now.ToString() + " : " + $"{ex.Message}");
             }
 
             lock (syncNumbThreads)
             {
-                Console.WriteLine($"Thread {Task.CurrentId} is deleted");
+                log.Add(DateTime.Now.ToString() + " : " + $"Thread {Task.CurrentId} is deleted");
             }
         }
     }

@@ -18,12 +18,8 @@ namespace Threading
             {
                 threadPool.AddTaskInQueue(testTask);
 
-                Thread.Sleep(2000);
-
                 threadPool.AddTaskInQueue(testTaskSec);
             }
-
-            Console.ReadKey();
         }
     }
 }

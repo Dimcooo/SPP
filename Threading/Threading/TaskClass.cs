@@ -10,24 +10,14 @@ namespace Threading
     {
         public void Test(object obj = null)
         {
-            //string name = "Thread " + ((Thread.CurrentThread.ManagedThreadId) - 2).ToString();
-            //Console.WriteLine($"{name} created");
-            //Thread.Sleep(1000);
-            //Console.WriteLine($"{name}: i do something just like this");
-            //Thread.Sleep(1000);
-            //Console.WriteLine($"{name} end");
-            Console.WriteLine("Something first");
+            int a = 5, b = 0;
+            a = a / b;
         }
 
         public void SecondTest(object obj = null)
         {
-            //string name = "Thread " + ((Thread.CurrentThread.ManagedThreadId) - 2).ToString();
-            //Console.WriteLine($"{name} created");
-            //Thread.Sleep(1000);
-            //Console.WriteLine($"{name}: i do something just like this in the second time");
-            //Thread.Sleep(1000);
-            //Console.WriteLine($"{name} end");
-            Console.WriteLine("Something second");
+            string a = "Something", b = "like this";
+            a = a + b + 'c';
         }
     }
 }
