@@ -12,12 +12,14 @@ namespace Threading
         {
             int a = 5, b = 0;
             a = a / b;
+            Console.WriteLine("Something");
         }
 
         public void SecondTest(object obj = null)
         {
             string a = "Something", b = "like this";
             a = a + b + 'c';
+            Console.WriteLine("Something other");
         }
     }
 }

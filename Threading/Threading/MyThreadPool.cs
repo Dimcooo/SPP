@@ -67,6 +67,7 @@ namespace Threading
                 name = "Thread " + (newThrd.Id).ToString();
                 log.Add(DateTime.Now.ToString() + " : " + $"{name} created");
             }
+
         }
 
         public void WorkForThread()
@@ -82,7 +83,7 @@ namespace Threading
             {
                 taskToDo.deleg(taskToDo.state);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 log.Add(DateTime.Now.ToString() + " : " + $"{ex.Message}");
             }
