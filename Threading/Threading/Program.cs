@@ -10,17 +10,18 @@ namespace Threading
         {
             TaskClass taskObj = new TaskClass();
 
-            MyThreadPool threadPool = new MyThreadPool(1, 8);
-
+            MyThreadPool threadPool = new MyThreadPool(2, 8);
             TaskQueue testTask = new TaskQueue(taskObj.Test, null);
+            TaskQueue testTaskSec = new TaskQueue(taskObj.SecondTest, null);
 
-            threadPool.AddTaskInQueue(testTask);
+            //for (int i = 0; i < 5; i++)
+            //{
+                threadPool.AddTaskInQueue(testTask);
 
-            Thread.Sleep(10000);
-            threadPool.AddTaskInQueue(testTask);
+                Thread.Sleep(4000);
 
-            Thread.Sleep(10000);
-            threadPool.AddTaskInQueue(testTask);
+                threadPool.AddTaskInQueue(testTaskSec);
+            //}
 
             Console.ReadKey();
         }

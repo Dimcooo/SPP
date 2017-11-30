@@ -12,7 +12,6 @@ namespace Threading
         private int maxCountThread;
         private int countTask = 0;
         private CancellationTokenSource cnclTkn = new CancellationTokenSource();
-
         private TaskClass task = new TaskClass();
         private Queue<TaskQueue> queueTask = new Queue<TaskQueue>();
         private object syncQueue = new object();
@@ -33,25 +32,21 @@ namespace Threading
         {
             if (countTask <= minCountThread)
             {
-                DirectionThread();
+                MakeThread();
             }
             else
             {
                 Console.WriteLine("Max numb of threads");
                 minCountThread++;
-                DirectionThread();
+                MakeThread();
             }
         }
 
         public MyThreadPool(int min, int max)
         {
+            Console.WriteLine("ThreadPool is created");
             this.minCountThread = min;
             this.maxCountThread = max;
-        }
-
-        public void DirectionThread()
-        {
-            MakeThread();
         }
 
         public void MakeThread()
@@ -73,6 +68,7 @@ namespace Threading
             {
                 taskToDo.deleg(taskToDo.state);
             }
+
             catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
