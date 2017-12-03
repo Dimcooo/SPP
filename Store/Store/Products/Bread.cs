@@ -14,5 +14,15 @@ namespace Store.Products
             Price = price;
             Manufacturer = manuf;
         }
+
+        public override string ToString()
+        {
+            return "Bread";
+        }
+
+        public override void ProdToString()
+        {
+            base.ProdToString();
+        }
     }
 }
