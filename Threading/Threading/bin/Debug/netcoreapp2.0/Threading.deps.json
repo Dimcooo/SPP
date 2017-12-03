@@ -1,0 +1,60 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.0",
+    "signature": "d14ef566559997c32b82117cc0ec4cc0811003eb"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.0": {
+      "Threading/1.0.0": {
+        "dependencies": {
+          "NLog": "4.4.12",
+          "NLog.Config": "4.4.12"
+        },
+        "runtime": {
+          "Threading.dll": {}
+        }
+      },
+      "NLog/4.4.12": {
+        "runtime": {
+          "lib/net45/NLog.dll": {}
+        }
+      },
+      "NLog.Config/4.4.12": {
+        "dependencies": {
+          "NLog": "4.4.12",
+          "NLog.Schema": "4.4.12"
+        }
+      },
+      "NLog.Schema/4.4.12": {}
+    }
+  },
+  "libraries": {
+    "Threading/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NLog/4.4.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fODew3BFT2XhAuqhGo2ZYT9OJE0ciGEBfvKXOmAAvaDsP/3ROIf083p8QUnmwKKw4jCkVW06ObX6gn/eFi2Skg==",
+      "path": "nlog/4.4.12",
+      "hashPath": "nlog.4.4.12.nupkg.sha512"
+    },
+    "NLog.Config/4.4.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vYSQM03xj8khIteB7ccE7tJFx7rxvpupykhDuDKsvq0W9sYr0Kewgm610GqjHyzd3O7qhiH2uN1VrP9l8hsAEQ==",
+      "path": "nlog.config/4.4.12",
+      "hashPath": "nlog.config.4.4.12.nupkg.sha512"
+    },
+    "NLog.Schema/4.4.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-09WGJZLsKYPOc7tULMCGOlrzsZGaMHDMRbf/TcfHfn4xS0ZT1+ADJjsss+9Xg/SzreiwEWgPaPSdkp2xpaktGQ==",
+      "path": "nlog.schema/4.4.12",
+      "hashPath": "nlog.schema.4.4.12.nupkg.sha512"
+    }
+  }
+}
