@@ -12,10 +12,9 @@ namespace Store
         {
             Console.WriteLine(user.Name + " u buy: " + product.Name + ", in quality: " + product.Count);
 
-
             if(product.Count / 3 > 0)
             {
-                Console.WriteLine($"Product cost = {((product.Count * product.Price)) - (((int)product.Price / 3) * product.Price)}");
+                Console.WriteLine($"Product cost = {((product.Count * product.Price)) - ((product.Count / 3) * product.Price)}");
             }
             else
             {
