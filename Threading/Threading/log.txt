@@ -1,8 +1,67 @@
-30.11.2017 15:32:40 : ThreadPool is created
-30.11.2017 15:32:40 : Task added
-30.11.2017 15:32:40 : Thread 1 created
-30.11.2017 15:32:40 : Task added
-30.11.2017 15:32:40 : Thread 2 created
-30.11.2017 15:32:40 : Attempted to divide by zero.
-30.11.2017 15:32:40 : Thread 1 is deleted
-30.11.2017 15:32:40 : Thread 2 is deleted
+03.12.2017 15:49:39 : ThreadPool is created
+03.12.2017 15:49:39 : Task added
+03.12.2017 15:49:39 : Thread: 1 created
+03.12.2017 15:49:39 : Task added
+03.12.2017 15:49:39 : Thread: 2 created
+03.12.2017 15:49:39 : Task added
+03.12.2017 15:49:39 : Thread: 3 created
+03.12.2017 15:49:39 : Task added
+03.12.2017 15:49:39 : Attempted to divide by zero.
+03.12.2017 15:49:39 : Thread: 4 created
+03.12.2017 15:49:39 : Attempted to divide by zero.
+03.12.2017 15:49:39 : Task added
+03.12.2017 15:49:40 : Min numb of threads
+03.12.2017 15:49:40 : Thread: 5 created
+03.12.2017 15:49:40 : Task added
+03.12.2017 15:49:40 : Min numb of threads
+03.12.2017 15:49:40 : Thread: 6 created
+03.12.2017 15:49:40 : Task added
+03.12.2017 15:49:40 : Min numb of threads
+03.12.2017 15:49:40 : Attempted to divide by zero.
+03.12.2017 15:49:40 : Thread: 7 created
+03.12.2017 15:49:40 : Task added
+03.12.2017 15:49:40 : Min numb of threads
+03.12.2017 15:49:40 : Thread: 8 created
+03.12.2017 15:49:40 : Task added
+03.12.2017 15:49:40 : Min numb of threads
+03.12.2017 15:49:40 : Thread: 9 created
+03.12.2017 15:49:40 : Task added
+03.12.2017 15:49:40 : Attempted to divide by zero.
+03.12.2017 15:49:40 : Attempted to divide by zero.
+03.12.2017 15:49:40 : Min numb of threads
+03.12.2017 15:49:40 : Thread: 10 created
+03.12.2017 15:49:40 : Task added
+03.12.2017 15:49:40 : Min numb of threads
+03.12.2017 15:49:40 : Thread: 11 created
+03.12.2017 15:49:40 : Task added
+03.12.2017 15:49:40 : Min numb of threads
+03.12.2017 15:49:40 : Thread: 12 created
+03.12.2017 15:49:40 : Task added
+03.12.2017 15:49:40 : Attempted to divide by zero.
+03.12.2017 15:49:40 : Min numb of threads
+03.12.2017 15:49:40 : Thread: 13 created
+03.12.2017 15:49:40 : Task added
+03.12.2017 15:49:40 : Min numb of threads
+03.12.2017 15:49:40 : Thread: 14 created
+03.12.2017 15:49:40 : Task added
+03.12.2017 15:49:40 : Min numb of threads
+03.12.2017 15:49:40 : Thread: 15 created
+03.12.2017 15:49:40 : Attempted to divide by zero.
+03.12.2017 15:49:40 : Task added
+03.12.2017 15:49:40 : Min numb of threads
+03.12.2017 15:49:40 : Attempted to divide by zero.
+03.12.2017 15:49:40 : Thread: 16 created
+03.12.2017 15:49:40 : Task added
+03.12.2017 15:49:40 : Min numb of threads
+03.12.2017 15:49:40 : Thread: 17 created
+03.12.2017 15:49:40 : Task added
+03.12.2017 15:49:40 : Min numb of threads
+03.12.2017 15:49:40 : Thread: 18 created
+03.12.2017 15:49:40 : Task added
+03.12.2017 15:49:40 : Min numb of threads
+03.12.2017 15:49:40 : Attempted to divide by zero.
+03.12.2017 15:49:40 : Thread: 19 created
+03.12.2017 15:49:40 : Attempted to divide by zero.
+03.12.2017 15:49:40 : Task added
+03.12.2017 15:49:40 : Min numb of threads
+03.12.2017 15:49:40 : Thread: 20 created
